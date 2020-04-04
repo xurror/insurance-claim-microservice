@@ -7,6 +7,17 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "customer": "Customer",
+        "address": "Address",
+        "claim": "Claim",
+        "paymentSchedule": "Payment Schedule",
+        "quote": "Quote",
+        "mta": "MTA",
+        "policy": "Policy",
+        "product": "Product",
+        "endorsement": "Endorsement",
+        "document": "Document",
+        "policyHolder": "Policy Holder",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

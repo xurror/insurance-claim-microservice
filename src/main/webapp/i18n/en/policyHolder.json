@@ -1,0 +1,24 @@
+{
+  "insuranceClaimMicroserviceApp": {
+    "policyHolder": {
+      "home": {
+        "title": "Policy Holders",
+        "createLabel": "Create a new Policy Holder",
+        "createOrEditLabel": "Create or edit a Policy Holder",
+        "notFound": "No Policy Holders found"
+      },
+      "created": "A new Policy Holder is created with identifier {{ param }}",
+      "updated": "A Policy Holder is updated with identifier {{ param }}",
+      "deleted": "A Policy Holder is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Policy Holder {{ id }}?"
+      },
+      "detail": {
+        "title": "Policy Holder"
+      },
+      "paymentSchedule": "Payment Schedule",
+      "customer": "Customer",
+      "quote": "Quote"
+    }
+  }
+}

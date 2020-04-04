@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="claim">
+            <h2><span jhiTranslate="insuranceClaimMicroserviceApp.claim.detail.title">Claim</span> {{ claim.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insuranceClaimMicroserviceApp.claim.date">Date</span></dt>
+                <dd>
+                    <span>{{ claim.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="insuranceClaimMicroserviceApp.claim.amount">Amount</span></dt>
+                <dd>
+                    <span>{{ claim.amount }}</span>
+                </dd>
+                <dt><span jhiTranslate="insuranceClaimMicroserviceApp.claim.claimStatus">Claim Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'insuranceClaimMicroserviceApp.ClaimStatus.' + claim.claimStatus }}">{{ claim.claimStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="insuranceClaimMicroserviceApp.claim.claimOutcomes">Claim Outcomes</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'insuranceClaimMicroserviceApp.ClaimOutcomes.' + claim.claimOutcomes }}">{{ claim.claimOutcomes }}</span>
+                </dd>
+                <dt><span jhiTranslate="insuranceClaimMicroserviceApp.claim.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="claim.customer">
+                        <a [routerLink]="['/customer', claim.customer?.id, 'view']">{{ claim.customer?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/claim', claim.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

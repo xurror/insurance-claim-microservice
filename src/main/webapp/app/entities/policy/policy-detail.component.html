@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="policy">
+            <h2><span jhiTranslate="insuranceClaimMicroserviceApp.policy.detail.title">Policy</span> {{ policy.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insuranceClaimMicroserviceApp.policy.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ policy.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="insuranceClaimMicroserviceApp.policy.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ policy.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="insuranceClaimMicroserviceApp.policy.premium">Premium</span></dt>
+                <dd>
+                    <span>{{ policy.premium }}</span>
+                </dd>
+                <dt><span jhiTranslate="insuranceClaimMicroserviceApp.policy.deductible">Deductible</span></dt>
+                <dd>
+                    <span>{{ policy.deductible }}</span>
+                </dd>
+                <dt><span jhiTranslate="insuranceClaimMicroserviceApp.policy.isActive">Is Active</span></dt>
+                <dd>
+                    <span>{{ policy.isActive }}</span>
+                </dd>
+                <dt><span jhiTranslate="insuranceClaimMicroserviceApp.policy.timestamp">Timestamp</span></dt>
+                <dd>
+                    <span>{{ policy.timestamp }}</span>
+                </dd>
+                <dt><span jhiTranslate="insuranceClaimMicroserviceApp.policy.quoteId">Quote Id</span></dt>
+                <dd>
+                    <div *ngIf="policy.quoteId">
+                        <a [routerLink]="['/quote', policy.quoteId?.id, 'view']">{{ policy.quoteId?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/policy', policy.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

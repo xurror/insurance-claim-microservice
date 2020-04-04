@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="insuranceClaimMicroserviceApp.claim.home.title">Claims</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-claim" [routerLink]="['/claim/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="insuranceClaimMicroserviceApp.claim.home.createLabel">
+            Create a new Claim
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="claims?.length === 0">
+        <span jhiTranslate="insuranceClaimMicroserviceApp.claim.home.notFound">No claims found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="claims?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="insuranceClaimMicroserviceApp.claim.date">Date</span></th>
+                    <th scope="col" ><span jhiTranslate="insuranceClaimMicroserviceApp.claim.amount">Amount</span></th>
+                    <th scope="col" ><span jhiTranslate="insuranceClaimMicroserviceApp.claim.claimStatus">Claim Status</span></th>
+                    <th scope="col" ><span jhiTranslate="insuranceClaimMicroserviceApp.claim.claimOutcomes">Claim Outcomes</span></th>
+                    <th scope="col" ><span jhiTranslate="insuranceClaimMicroserviceApp.claim.customer">Customer</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let claim of claims ;trackBy: trackId">
+                    <td><a [routerLink]="['/claim', claim.id, 'view']">{{ claim.id }}</a></td>
+                    <td>{{ claim.date }}</td>
+                    <td>{{ claim.amount }}</td>
+                    <td jhiTranslate="{{ 'insuranceClaimMicroserviceApp.ClaimStatus.' + claim.claimStatus }}">{{ claim.claimStatus }}</td>
+                    <td jhiTranslate="{{ 'insuranceClaimMicroserviceApp.ClaimOutcomes.' + claim.claimOutcomes }}">{{ claim.claimOutcomes }}</td>
+                    <td>
+                        <div *ngIf="claim.customer">
+                            <a [routerLink]="['/customer', claim.customer?.id, 'view']" >{{ claim.customer?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/claim', claim.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/claim', claim.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(claim)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

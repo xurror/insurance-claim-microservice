@@ -1,0 +1,9 @@
+{
+  "insuranceClaimMicroserviceApp": {
+    "ClaimOutcomes": {
+      "null": "",
+      "Settled": "Settled",
+      "Rejected": "Rejected"
+    }
+  }
+}

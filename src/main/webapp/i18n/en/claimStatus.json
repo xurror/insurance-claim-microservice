@@ -1,0 +1,8 @@
+{
+  "insuranceClaimMicroserviceApp": {
+    "ClaimStatus": {
+      "null": "",
+      "UnderReview": "UnderReview"
+    }
+  }
+}

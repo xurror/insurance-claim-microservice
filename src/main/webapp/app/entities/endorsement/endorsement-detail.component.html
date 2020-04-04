@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="endorsement">
+            <h2><span jhiTranslate="insuranceClaimMicroserviceApp.endorsement.detail.title">Endorsement</span> {{ endorsement.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="insuranceClaimMicroserviceApp.endorsement.ref">Ref</span></dt>
+                <dd>
+                    <span>{{ endorsement.ref }}</span>
+                </dd>
+                <dt><span jhiTranslate="insuranceClaimMicroserviceApp.endorsement.description">Description</span></dt>
+                <dd>
+                    <span>{{ endorsement.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="insuranceClaimMicroserviceApp.endorsement.policy">Policy</span></dt>
+                <dd>
+                    <div *ngIf="endorsement.policy">
+                        <a [routerLink]="['/policy', endorsement.policy?.id, 'view']">{{ endorsement.policy?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/endorsement', endorsement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

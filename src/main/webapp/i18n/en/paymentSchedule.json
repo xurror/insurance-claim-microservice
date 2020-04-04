@@ -1,0 +1,24 @@
+{
+  "insuranceClaimMicroserviceApp": {
+    "paymentSchedule": {
+      "home": {
+        "title": "Payment Schedules",
+        "createLabel": "Create a new Payment Schedule",
+        "createOrEditLabel": "Create or edit a Payment Schedule",
+        "notFound": "No Payment Schedules found"
+      },
+      "created": "A new Payment Schedule is created with identifier {{ param }}",
+      "updated": "A Payment Schedule is updated with identifier {{ param }}",
+      "deleted": "A Payment Schedule is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Payment Schedule {{ id }}?"
+      },
+      "detail": {
+        "title": "Payment Schedule"
+      },
+      "dueDate": "Due Date",
+      "amount": "Amount",
+      "policyHolder": "Policy Holder"
+    }
+  }
+}

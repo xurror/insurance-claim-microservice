@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-payment-schedule-heading" jhiTranslate="insuranceClaimMicroserviceApp.paymentSchedule.home.createOrEditLabel">Create or edit a Payment Schedule</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.paymentSchedule.dueDate" for="field_dueDate">Due Date</label>
+                    <input type="text" class="form-control" name="dueDate" id="field_dueDate"
+                           formControlName="dueDate"/>
+                    <div *ngIf="editForm.get('dueDate')!.invalid && (editForm.get('dueDate')!.dirty || editForm.get('dueDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dueDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.paymentSchedule.amount" for="field_amount">Amount</label>
+                    <input type="text" class="form-control" name="amount" id="field_amount"
+                           formControlName="amount"/>
+                    <div *ngIf="editForm.get('amount')!.invalid && (editForm.get('amount')!.dirty || editForm.get('amount')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('amount')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.paymentSchedule.policyHolder" for="field_policyHolder">Policy Holder</label>
+                    <select class="form-control" id="field_policyHolder" name="policyHolder" formControlName="policyHolder">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="policyHolderOption.id === editForm.get('policyHolder')!.value?.id ? editForm.get('policyHolder')!.value : policyHolderOption" *ngFor="let policyHolderOption of policyholders; trackBy: trackById">{{ policyHolderOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

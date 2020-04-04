@@ -40,6 +40,26 @@ public class CacheConfiguration {
             createCache(cm, com.apache.fineract.cn.insurance.domain.User.class.getName());
             createCache(cm, com.apache.fineract.cn.insurance.domain.Authority.class.getName());
             createCache(cm, com.apache.fineract.cn.insurance.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.apache.fineract.cn.insurance.domain.Customer.class.getName());
+            createCache(cm, com.apache.fineract.cn.insurance.domain.Customer.class.getName() + ".addresses");
+            createCache(cm, com.apache.fineract.cn.insurance.domain.Customer.class.getName() + ".policyHolders");
+            createCache(cm, com.apache.fineract.cn.insurance.domain.Customer.class.getName() + ".claims");
+            createCache(cm, com.apache.fineract.cn.insurance.domain.Address.class.getName());
+            createCache(cm, com.apache.fineract.cn.insurance.domain.Claim.class.getName());
+            createCache(cm, com.apache.fineract.cn.insurance.domain.PaymentSchedule.class.getName());
+            createCache(cm, com.apache.fineract.cn.insurance.domain.Quote.class.getName());
+            createCache(cm, com.apache.fineract.cn.insurance.domain.Quote.class.getName() + ".products");
+            createCache(cm, com.apache.fineract.cn.insurance.domain.Quote.class.getName() + ".policyHolders");
+            createCache(cm, com.apache.fineract.cn.insurance.domain.MTA.class.getName());
+            createCache(cm, com.apache.fineract.cn.insurance.domain.Policy.class.getName());
+            createCache(cm, com.apache.fineract.cn.insurance.domain.Policy.class.getName() + ".mTAS");
+            createCache(cm, com.apache.fineract.cn.insurance.domain.Policy.class.getName() + ".endorsements");
+            createCache(cm, com.apache.fineract.cn.insurance.domain.Policy.class.getName() + ".documents");
+            createCache(cm, com.apache.fineract.cn.insurance.domain.Product.class.getName());
+            createCache(cm, com.apache.fineract.cn.insurance.domain.Endorsement.class.getName());
+            createCache(cm, com.apache.fineract.cn.insurance.domain.Document.class.getName());
+            createCache(cm, com.apache.fineract.cn.insurance.domain.PolicyHolder.class.getName());
+            createCache(cm, com.apache.fineract.cn.insurance.domain.PolicyHolder.class.getName() + ".paymentSchedules");
             // jhipster-needle-ehcache-add-entry
         };
     }

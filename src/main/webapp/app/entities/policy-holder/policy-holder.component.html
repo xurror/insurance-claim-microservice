@@ -1,0 +1,71 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="insuranceClaimMicroserviceApp.policyHolder.home.title">Policy Holders</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-policy-holder" [routerLink]="['/policy-holder/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="insuranceClaimMicroserviceApp.policyHolder.home.createLabel">
+            Create a new Policy Holder
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="policyHolders?.length === 0">
+        <span jhiTranslate="insuranceClaimMicroserviceApp.policyHolder.home.notFound">No policyHolders found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="policyHolders?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="insuranceClaimMicroserviceApp.policyHolder.customer">Customer</span></th>
+                    <th scope="col" ><span jhiTranslate="insuranceClaimMicroserviceApp.policyHolder.quote">Quote</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let policyHolder of policyHolders ;trackBy: trackId">
+                    <td><a [routerLink]="['/policy-holder', policyHolder.id, 'view']">{{ policyHolder.id }}</a></td>
+                    <td>
+                        <div *ngIf="policyHolder.customer">
+                            <a [routerLink]="['/customer', policyHolder.customer?.id, 'view']" >{{ policyHolder.customer?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="policyHolder.quote">
+                            <a [routerLink]="['/quote', policyHolder.quote?.id, 'view']" >{{ policyHolder.quote?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/policy-holder', policyHolder.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/policy-holder', policyHolder.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(policyHolder)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
