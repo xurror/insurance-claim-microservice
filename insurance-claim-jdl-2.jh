@@ -1,0 +1,122 @@
+entity Customer {
+	id Integer required,
+	firstName String required,
+    lastName String required,
+    dob String required,
+    email String required,
+    telephone String required,
+    SSN String required,    
+    isPrimaryPolicyHolder Boolean required,
+    gender String required,
+    maritalStatus String required,
+    isActive Boolean required,
+    timestamp String required
+}
+
+entity Address {
+	id Integer required,
+	address String required,
+    address2 String required,
+    city String required,
+    state String required,
+    zip String required,
+    country String required
+}
+
+entity Claim {
+	id Integer required,
+	date String required,
+    amount String required
+    claimStatus ClaimStatus
+    claimOutcomes ClaimOutcomes
+}
+
+enum ClaimStatus {
+	UnderReview
+}
+
+enum ClaimOutcomes {
+    Settled, Rejected
+}
+
+entity PaymentSchedule {
+	id Integer required,
+	dueDate String required,
+    amount String required
+}
+
+entity Quote {
+	id Integer required,
+	ref String required,
+    startDate String required,
+    endDate String required,
+    premium String required,
+    IPT String required
+}
+
+entity MTA {
+	id Integer required,
+	startDate String required,
+    endDate String required
+}
+
+entity Policy {
+	id Integer required,
+	startDate String required,
+    endDate String required,
+    premium String required,
+    deductible String required,
+    isActive Boolean required,
+    timestamp String required
+}
+
+entity Product {
+	id Integer required,
+	name String required,
+    code String required,
+    description String required,
+    category String required,
+    timestamp String required,
+    isActive String required
+}
+
+entity Endorsement {
+	id Integer required,
+	ref String required,
+    description String required
+}
+
+entity Document {
+	id Integer required,
+	ref String required
+}
+
+entity PolicyHolder {
+	id Integer required
+}
+
+// Relationships
+relationship OneToOne {
+	Policy{quoteId} to Quote
+}
+
+relationship OneToMany {
+	Quote to Product
+    Customer to Address
+    Customer to PolicyHolder
+    Quote to PolicyHolder
+    PolicyHolder to PaymentSchedule
+}
+
+relationship ManyToOne {
+    Claim to Customer
+    MTA to Policy
+    Endorsement to Policy
+    Document to Policy
+}
+
+
+
+
+
+
