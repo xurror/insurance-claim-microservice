@@ -1,0 +1,24 @@
+{
+  "insuranceClaimMicroserviceApp": {
+    "endorsement": {
+      "home": {
+        "title": "Endorsements",
+        "createLabel": "Create a new Endorsement",
+        "createOrEditLabel": "Create or edit a Endorsement",
+        "notFound": "No Endorsements found"
+      },
+      "created": "A new Endorsement is created with identifier {{ param }}",
+      "updated": "A Endorsement is updated with identifier {{ param }}",
+      "deleted": "A Endorsement is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Endorsement {{ id }}?"
+      },
+      "detail": {
+        "title": "Endorsement"
+      },
+      "ref": "Ref",
+      "description": "Description",
+      "policy": "Policy"
+    }
+  }
+}

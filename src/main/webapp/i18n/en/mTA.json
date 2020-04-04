@@ -1,0 +1,24 @@
+{
+  "insuranceClaimMicroserviceApp": {
+    "mTA": {
+      "home": {
+        "title": "MTAS",
+        "createLabel": "Create a new MTA",
+        "createOrEditLabel": "Create or edit a MTA",
+        "notFound": "No MTAS found"
+      },
+      "created": "A new MTA is created with identifier {{ param }}",
+      "updated": "A MTA is updated with identifier {{ param }}",
+      "deleted": "A MTA is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete MTA {{ id }}?"
+      },
+      "detail": {
+        "title": "MTA"
+      },
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "policy": "Policy"
+    }
+  }
+}

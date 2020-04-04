@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-quote-heading" jhiTranslate="insuranceClaimMicroserviceApp.quote.home.createOrEditLabel">Create or edit a Quote</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.quote.ref" for="field_ref">Ref</label>
+                    <input type="text" class="form-control" name="ref" id="field_ref"
+                           formControlName="ref"/>
+                    <div *ngIf="editForm.get('ref')!.invalid && (editForm.get('ref')!.dirty || editForm.get('ref')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('ref')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.quote.startDate" for="field_startDate">Start Date</label>
+                    <input type="text" class="form-control" name="startDate" id="field_startDate"
+                           formControlName="startDate"/>
+                    <div *ngIf="editForm.get('startDate')!.invalid && (editForm.get('startDate')!.dirty || editForm.get('startDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('startDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.quote.endDate" for="field_endDate">End Date</label>
+                    <input type="text" class="form-control" name="endDate" id="field_endDate"
+                           formControlName="endDate"/>
+                    <div *ngIf="editForm.get('endDate')!.invalid && (editForm.get('endDate')!.dirty || editForm.get('endDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('endDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.quote.premium" for="field_premium">Premium</label>
+                    <input type="text" class="form-control" name="premium" id="field_premium"
+                           formControlName="premium"/>
+                    <div *ngIf="editForm.get('premium')!.invalid && (editForm.get('premium')!.dirty || editForm.get('premium')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('premium')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.quote.iPT" for="field_iPT">I PT</label>
+                    <input type="text" class="form-control" name="iPT" id="field_iPT"
+                           formControlName="iPT"/>
+                    <div *ngIf="editForm.get('iPT')!.invalid && (editForm.get('iPT')!.dirty || editForm.get('iPT')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('iPT')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

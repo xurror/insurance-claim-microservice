@@ -1,0 +1,37 @@
+{
+    "name": "PolicyHolder",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "paymentSchedule",
+            "otherEntityRelationshipName": "policyHolder",
+            "relationshipName": "paymentSchedule"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "customer",
+            "otherEntityRelationshipName": "policyHolder",
+            "relationshipName": "customer",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "quote",
+            "otherEntityRelationshipName": "policyHolder",
+            "relationshipName": "quote",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200404044800",
+    "entityTableName": "policy_holder",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

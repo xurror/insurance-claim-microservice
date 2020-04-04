@@ -1,0 +1,158 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-customer-heading" jhiTranslate="insuranceClaimMicroserviceApp.customer.home.createOrEditLabel">Create or edit a Customer</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.customer.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                           formControlName="firstName"/>
+                    <div *ngIf="editForm.get('firstName')!.invalid && (editForm.get('firstName')!.dirty || editForm.get('firstName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('firstName')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.customer.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                           formControlName="lastName"/>
+                    <div *ngIf="editForm.get('lastName')!.invalid && (editForm.get('lastName')!.dirty || editForm.get('lastName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastName')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.customer.dob" for="field_dob">Dob</label>
+                    <input type="text" class="form-control" name="dob" id="field_dob"
+                           formControlName="dob"/>
+                    <div *ngIf="editForm.get('dob')!.invalid && (editForm.get('dob')!.dirty || editForm.get('dob')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dob')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.customer.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                    <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('email')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.customer.telephone" for="field_telephone">Telephone</label>
+                    <input type="text" class="form-control" name="telephone" id="field_telephone"
+                           formControlName="telephone"/>
+                    <div *ngIf="editForm.get('telephone')!.invalid && (editForm.get('telephone')!.dirty || editForm.get('telephone')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('telephone')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.customer.sSN" for="field_sSN">S SN</label>
+                    <input type="text" class="form-control" name="sSN" id="field_sSN"
+                           formControlName="sSN"/>
+                    <div *ngIf="editForm.get('sSN')!.invalid && (editForm.get('sSN')!.dirty || editForm.get('sSN')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sSN')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.customer.isPrimaryPolicyHolder" for="field_isPrimaryPolicyHolder">Is Primary Policy Holder</label>
+                    <input type="checkbox" class="form-control" name="isPrimaryPolicyHolder" id="field_isPrimaryPolicyHolder"
+                           formControlName="isPrimaryPolicyHolder"/>
+                    <div *ngIf="editForm.get('isPrimaryPolicyHolder')!.invalid && (editForm.get('isPrimaryPolicyHolder')!.dirty || editForm.get('isPrimaryPolicyHolder')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('isPrimaryPolicyHolder')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.customer.gender" for="field_gender">Gender</label>
+                    <input type="text" class="form-control" name="gender" id="field_gender"
+                           formControlName="gender"/>
+                    <div *ngIf="editForm.get('gender')!.invalid && (editForm.get('gender')!.dirty || editForm.get('gender')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('gender')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.customer.maritalStatus" for="field_maritalStatus">Marital Status</label>
+                    <input type="text" class="form-control" name="maritalStatus" id="field_maritalStatus"
+                           formControlName="maritalStatus"/>
+                    <div *ngIf="editForm.get('maritalStatus')!.invalid && (editForm.get('maritalStatus')!.dirty || editForm.get('maritalStatus')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('maritalStatus')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.customer.isActive" for="field_isActive">Is Active</label>
+                    <input type="checkbox" class="form-control" name="isActive" id="field_isActive"
+                           formControlName="isActive"/>
+                    <div *ngIf="editForm.get('isActive')!.invalid && (editForm.get('isActive')!.dirty || editForm.get('isActive')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('isActive')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="insuranceClaimMicroserviceApp.customer.timestamp" for="field_timestamp">Timestamp</label>
+                    <input type="text" class="form-control" name="timestamp" id="field_timestamp"
+                           formControlName="timestamp"/>
+                    <div *ngIf="editForm.get('timestamp')!.invalid && (editForm.get('timestamp')!.dirty || editForm.get('timestamp')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('timestamp')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
